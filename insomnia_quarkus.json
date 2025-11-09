@@ -1,0 +1,108 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-11-08T15:05:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2025.0.0",
+  "resources": [
+    {
+      "_id": "wrk_quarkus",
+      "_type": "workspace",
+      "name": "Sprint API Quarkus",
+      "parentId": null
+    },
+    {
+      "_id": "grp_health",
+      "_type": "request_group",
+      "name": "Health",
+      "parentId": "wrk_quarkus"
+    },
+    {
+      "_id": "req_h",
+      "_type": "request",
+      "name": "GET /health",
+      "parentId": "grp_health",
+      "method": "GET",
+      "url": "http://localhost:8080/health"
+    },
+    {
+      "_id": "grp_c",
+      "_type": "request_group",
+      "name": "Consultas",
+      "parentId": "wrk_quarkus"
+    },
+    {
+      "_id": "req_c_list",
+      "_type": "request",
+      "name": "GET /consultas",
+      "parentId": "grp_c",
+      "method": "GET",
+      "url": "http://localhost:8080/consultas"
+    },
+    {
+      "_id": "req_c_id",
+      "_type": "request",
+      "name": "GET /consultas/{id}",
+      "parentId": "grp_c",
+      "method": "GET",
+      "url": "http://localhost:8080/consultas/C0001"
+    },
+    {
+      "_id": "req_c_lemb",
+      "_type": "request",
+      "name": "GET /consultas/{id}/lembretes",
+      "parentId": "grp_c",
+      "method": "GET",
+      "url": "http://localhost:8080/consultas/C0001/lembretes"
+    },
+    {
+      "_id": "grp_l",
+      "_type": "request_group",
+      "name": "Lembretes",
+      "parentId": "wrk_quarkus"
+    },
+    {
+      "_id": "req_l_post",
+      "_type": "request",
+      "name": "POST /lembretes",
+      "parentId": "grp_l",
+      "method": "POST",
+      "url": "http://localhost:8080/lembretes",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"idConsulta\": \"C0001\", \"tipo\": \"T-24H\", \"canal\": \"WHATSAPP\", \"status\": \"ENVIADO\"}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_l_put",
+      "_type": "request",
+      "name": "PUT /lembretes/{id}",
+      "parentId": "grp_l",
+      "method": "PUT",
+      "url": "http://localhost:8080/lembretes/101",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"idConsulta\": \"C0001\", \"tipo\": \"T-2H\", \"canal\": \"SMS\", \"status\": \"PENDENTE\"}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_l_del",
+      "_type": "request",
+      "name": "DELETE /lembretes/{id}",
+      "parentId": "grp_l",
+      "method": "DELETE",
+      "url": "http://localhost:8080/lembretes/101"
+    }
+  ]
+}
